@@ -7,6 +7,8 @@ function getSearchMethod(searchTerm) {
         searchMethod = 'zip';
     else
         searchMethod = 'q';
+
+    return searchMethod;
 }
 
 function searchWeather(searchTerm) {
@@ -23,6 +25,10 @@ function init(resultFromServer) {
     switch (resultFromServer.weather[0].main) {
         case 'Clear':
             document.body.style.backgroundImage = 'url("clear.jpeg")';
+            break;
+        case 'Haze':
+        case 'Dust':
+            document.body.style.backgroundImage = 'url("haze.jpeg")';
             break;
         case 'Clouds':
             document.body.style.backgroundImage = 'url("cloudy.jpeg")';
@@ -71,6 +77,11 @@ function setPositionForWeatherInfo() {
     weatherContainer.style.top = `calc(50% - ${weatherContainerHeight/1.3}px)`;
     weatherContainer.style.visibility = 'visible';
 }
+
+document.getElementById('searchInput').addEventListener('keypress', function(event) {
+    if(event.keyCode === 13)
+        document.getElementById('searchBtn').click();
+})
 
 document.getElementById('searchBtn').addEventListener('click', () => {
     let searchTerm = document.getElementById('searchInput').value;

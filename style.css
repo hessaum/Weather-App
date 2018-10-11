@@ -13,6 +13,7 @@ body {
     box-shadow: 1px 1px 5px black;
     padding: 50px;
     border-radius: 10px;
+    text-align: center;
     position: absolute;
     visibility: hidden;
 }
@@ -64,14 +65,13 @@ body {
 }
 
 #temperature {
-    font-size: 38px;
-    vertical-align: 25%;
+    font-size: 50px;
 }
 
 .bottomDetails {
     display: block;
     font-size: 24px;
-    text-align: right;
+    text-align: left;
 }
 
 hr {
